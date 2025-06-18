@@ -6,6 +6,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import logging
 
+
 h2o.init(max_mem_size='4G')
 logging.basicConfig(level=logging.INFO)
 warnings.filterwarnings('ignore')
