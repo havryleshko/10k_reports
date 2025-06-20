@@ -1,12 +1,9 @@
 import warnings
-import h2o
-from h2o import H2OFrame
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import logging
 
-h2o.init(max_mem_size='4G')
 logging.basicConfig(level=logging.INFO)
 warnings.filterwarnings('ignore')
 
@@ -88,6 +85,81 @@ print(pivot_df.columns)
 
 logging.info('Value counts...')
 print(pivot_df['burn_cash'].value_counts())
+
+#EDA
+#creating new features for EDA for further insides (partially feature engineering)
+
+logging.info('Profitability and CF - metrics ratios...')
+pivot_df['FCF_margin'] = pivot_df['Free Cash Flow'] / pivot_df['End Cash'] # FCF / End Cash = FCFmargin
+pivot_df['OCF_margin'] = pivot_df['Operating Cash Flow'] / pivot_df['End Cash'] # OCF / ENd cash = OCF margin
+
+logging.info('Growth and Change ratios...')
+pivot_df['Net_Income_YoY'] = pivot_df.groupby('company')['Net Income'].pct_change() * 100
+print(f'YoY trend analysis of Net Income: ', pivot_df['Net_Income_YoY'])
+
+pivot_df['FCF_YoY'] = pivot_df.groupby('company')['Free Cash Flow'].pct_change() * 100
+print(f'YoY trend analysis of FCF: ', pivot_df['FCF_YoY'])
+
+pivot_df['OCF_YoY'] = pivot_df.groupby('company')['Operating Cash Flow'].pct_change() * 100
+print(f'YoY trend analysis of OCF: ', pivot_df['OCF_YoY'])
+
+#now comparing Cap Spending of each company
+
+pivot_df['capex_ratio'] = pivot_df['Capital Expenditures'] / pivot_df['End Cash'] # Capex ratio = capex / end cash
+pivot_df['debt_repay_ratio'] = pivot_df['Debt Repay.'] / pivot_df['End Cash'] # debt repay ration = debt repay / end cash
+
+#EDA visuals
+sns.set_style('whitegrid')
+
+plt.figure(figsize=(8, 6))
+sns.countplot(data=pivot_df, x='burn_cash', palette=['green', 'red'])
+plt.xticks([0,1], ['No burn', 'Burn'])
+plt.xlabel('Burn Cash 1/0')
+plt.title('Distribution of class')
+plt.tight_layout()
+plt.show() # this will show balance 
+
+burn_rate = pivot_df.groupby('company')['burn_cash'].mean().reset_index()
+burn_rate['burn_cash_percent'] = burn_rate['burn_cash'] * 100
+
+plt.figure(figsize=(10, 8))
+sns.barplot(data=burn_rate, x='company', y='burn_cash_percent', color='skyblue')
+plt.xlabel('Company')
+plt.ylabel('Burn cash percentage')
+plt.title('Percentage of years with cash burn')
+plt.tight_layout()
+plt.show() #this will show burn rate 
+
+avg_margins = pivot_df.groupby('company')[['FCF_margin', 'OCF_margin']].mean().reset_index() #
+avg_margins = avg_margins.melt(
+    id_vars='company',
+    var_name='Margin Type',
+    value_name='Value'
+) #need to convert from wide to long format
+
+plt.figure(figsize=(10, 6))
+sns.barplot(data=avg_margins, x='company', y='Value', hue='Margin Type')
+plt.axhline(0, color='black', linewidth=1)
+plt.title('Avg margins OCF and FCF')
+plt.tight_layout()
+plt.show() # avg margins for each company - FCF and OCF
+
+trend = pivot_df.groupby('year')['Free Cash Flow'].mean().reset_index()
+plt.figure(figsize=(10, 6))
+sns.lineplot(data=trend, x='year', y='Free Cash Flow', marker='o')
+plt.title('Trend')
+plt.tight_layout()
+plt.show() # FCF trends
+
+capex_ratio = pivot_df.groupby('company')['capex_ratio'].mean().reset_index()
+
+plt.figure(figsize=(10, 6))
+sns.barplot(data=capex_ratio, x='company', y='capex_ratio', color='skyblue')
+plt.ylabel('Capex / End cash')
+plt.title('avg capex ratio ')
+plt.tight_layout()
+plt.show() # shows avg capex ratio by company
+
 
 
 
