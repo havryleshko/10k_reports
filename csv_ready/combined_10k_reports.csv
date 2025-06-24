@@ -149,3 +149,243 @@ Capital Expenditures,-1.0,-0.7,-2.0,-4.0,LEU
 Beg. Cash,158.0,197.0,212.0,234.0,LEU
 End Cash,197.0,212.0,234.0,704.0,LEU
 Free Cash Flow,49.0,20.0,8.0,33.0,LEU
+Operating Activities,,,,,ANLDF
+Net Income,-CA10,-CA9,CA13,-CA11,ANLDF
+Dep. & Amort.,0.4,0.5,0.0,0.0,ANLDF
+Deferred Tax,-0.4,-0.5,0,0,ANLDF
+Stock-Based Comp.,2,3,2,0,ANLDF
+Change in WC,-1,-0.4,-1,2,ANLDF
+Other Non-Cash,4,-1,-22,1.0,ANLDF
+Operating Cash Flow,-5,-8,-7,-8,ANLDF
+Investing Activities,,,,,ANLDF
+PP&E Inv.,-0.1,-2,-6,-0.1,ANLDF
+Net Acquisitions,0.1,0,-0.1,0,ANLDF
+Inv. Purchases,-3,0,0,0,ANLDF
+Inv. Sales/Matur.,3,0,0,0,ANLDF
+Other Inv. Act.,-3,0,1,-0.8,ANLDF
+Investing Cash Flow,-3,-2,-5,-0.9,ANLDF
+Financing Activities,,,,,ANLDF
+Debt Repay.,-0.0,0,4,6,ANLDF
+Stock Issued,4,20,6,0,ANLDF
+Stock Repurch.,0,0,0,0,ANLDF
+Dividends Paid,0,0,0,0,ANLDF
+Other Fin. Act.,7,-11,0,2,ANLDF
+Financing Cash Flow,11,9,10,8,ANLDF
+Forex Effect,0,0,0,0,ANLDF
+Net Chg. in Cash,3,-0.5,-2,-1,ANLDF
+Supplemental Information,,,,,ANLDF
+Operating Cash Flow,-5,-8,-7,-8,ANLDF
+Capital Expenditures,-0.1,-2,-6,-0.1,ANLDF
+Beg. Cash,2,5,4,3,ANLDF
+End Cash,5,4,3,1,ANLDF
+Free Cash Flow,-5,-9,-13,-8,ANLDF
+Operating Activities,,,,,BOE
+Net Income,A0.9,A31,A13,A45,BOE
+Dep. & Amort.,0.1,0.0,0.1,0.4,BOE
+Deferred Tax,-0.4,-0.1,-3,0,BOE
+Stock-Based Comp.,0.0,0.0,0.0,0,BOE
+Change in WC,-0.2,0.0,-3,-8,BOE
+Other Non-Cash,-4,-36,-11,-49,BOE
+Operating Cash Flow,-3,-4,-4,-12,BOE
+Investing Activities,,,,,BOE
+PP&E Inv.,-2,-3,-40,-90,BOE
+Net Acquisitions,0.0,0.0,0,-91,BOE
+Inv. Purchases,-50,-0.6,-0.7,-38,BOE
+Inv. Sales/Matur.,0.0,1,0,0,BOE
+Other Inv. Act.,-0.0,-0.2,-0.0,-5,BOE
+Investing Cash Flow,-51,-3,-41,-223,BOE
+Financing Activities,,,,,BOE
+Debt Repay.,-0.4,0,0,0,BOE
+Stock Issued,72,119,0,220,BOE
+Stock Repurch.,0,0,0,0,BOE
+Dividends Paid,0,0,0,0,BOE
+Other Fin. Act.,0,-0.0,-0.0,-0.2,BOE
+Financing Cash Flow,72,119,-0.0,212,BOE
+Forex Effect,0.0,0.0,0.0,2,BOE
+Net Chg. in Cash,17,112,-44,-22,BOE
+Supplemental Information,,,,,BOE
+Operating Cash Flow,-3,-4,-4,-12,BOE
+Capital Expenditures,-2,-3,-40,-90,BOE
+Beg. Cash,4,21,133,89,BOE
+End Cash,21,133,89,67,BOE
+Free Cash Flow,-5,-7,-43,-102,BOE
+Operating Activities,,,,,NEE
+Net Income,2827.0,3246.0,6282.0,5698.0,NEE
+Dep. & Amort.,4212.0,4790.0,6151.0,5761.0,NEE
+Deferred Tax,474.0,534.0,708.0,1308.0,NEE
+Stock-Based Comp.,119.0,142.0,0.0,0.0,NEE
+Change in WC,-523.0,412.0,-1393.0,160.0,NEE
+Other Non-Cash,-1062.0,-862.0,-447.0,333.0,NEE
+Operating Cash Flow,7553.0,8262.0,11301.0,13260.0,NEE
+Investing Activities,,,,,NEE
+PP&E Inv.,-7830.0,-9742.0,0.0,0.0,NEE
+Net Acquisitions,-7555.0,0.0,924.0,0.0,NEE
+Inv. Purchases,-13557.0,-14127.0,-21491.0,-5623.0,NEE
+Inv. Sales/Matur.,7756.0,5421.0,6758.0,8104.0,NEE
+Other Inv. Act.,7595.0,89.0,-9658.0,-24745.0,NEE
+Investing Cash Flow,-13591.0,-18359.0,-23467.0,-22264.0,NEE
+Financing Activities,,,,,NEE
+Debt Repay.,6663.0,10288.0,8187.0,11638.0,NEE
+Stock Issued,14.0,1460.0,4514.0,48.0,NEE
+Stock Repurch.,0.0,0.0,0.0,0.0,NEE
+Dividends Paid,-3024.0,-3352.0,-3782.0,-4235.0,NEE
+Other Fin. Act.,2154.0,3833.0,3230.0,-451.0,NEE
+Financing Cash Flow,5807.0,12229.0,12149.0,7000.0,NEE
+Forex Effect,1.0,-7.0,-4.0,-14.0,NEE
+Net Chg. in Cash,-230.0,2125.0,-21.0,-2018.0,NEE
+Supplemental Information,,,,,NEE
+Operating Cash Flow,7553.0,8262.0,11301.0,13260.0,NEE
+Capital Expenditures,-7830.0,-9742.0,-9548.0,-8514.0,NEE
+Beg. Cash,1546.0,1316.0,3441.0,3420.0,NEE
+End Cash,1316.0,3441.0,3420.0,1402.0,NEE
+Free Cash Flow,-277.0,-1480.0,1753.0,4746.0,NEE
+Operating Activities,,,,,NXE
+Net Income,-CA127,-CA60,CA70,-CA78,NXE
+Dep. & Amort.,2,2,2,2,NXE
+Deferred Tax,1,-1,-1,-5,NXE
+Stock-Based Comp.,31,35,37,30,NXE
+Change in WC,-0.1,-0.1,-14,-6,NXE
+Other Non-Cash,76,4,-146,32,NXE
+Operating Cash Flow,-17,-20,-53,-24,NXE
+Investing Activities,,,,,NXE
+PP&E Inv.,-47,-0.4,-6,-2,NXE
+Net Acquisitions,0.2,0,0,0,NXE
+Inv. Purchases,0,0,-2,0,NXE
+Inv. Sales/Matur.,0,0,0,0,NXE
+Other Inv. Act.,0.0,-68,-152,-128,NXE
+Investing Cash Flow,-47,-68,-160,-131,NXE
+Financing Activities,,,,,NXE
+Debt Repay.,-1,4,147,-1,NXE
+Stock Issued,164,6,197,346,NXE
+Stock Repurch.,0,0,0,0,NXE
+Dividends Paid,0,0,0,0,NXE
+Other Fin. Act.,28,9,24,-0.3,NXE
+Financing Cash Flow,191,20,369,345,NXE
+Forex Effect,-0.1,1,0.2,-4,NXE
+Net Chg. in Cash,128,-67,156,186,NXE
+Supplemental Information,,,,,NXE
+Operating Cash Flow,-17,-20,-53,-24,NXE
+Capital Expenditures,-47,-0.4,-6,-131,NXE
+Beg. Cash,74,202,134,291,NXE
+End Cash,202,134,291,477,NXE
+Free Cash Flow,-64,-21,-168,-155,NXE
+Operating Activities,,,,,NNE
+Net Income,,-1.0,-6.0,-10.0,NNE
+Dep. & Amort.,,0.0,0.0,0.1,NNE
+Deferred Tax,,0.0,0.0,0.0,NNE
+Stock-Based Comp.,,0.0,0.0,0.3,NNE
+Change in WC,,0.0,-0.0,0.5,NNE
+Other Non-Cash,,0.4,2.0,0.8,NNE
+Operating Cash Flow,,-0.6,-4.0,-8.0,NNE
+Investing Activities,,,,,NNE
+PP&E Inv.,,0.0,0.0,-2.0,NNE
+Net Acquisitions,,0.0,0.0,0.0,NNE
+Inv. Purchases,,0.0,0.0,0.0,NNE
+Inv. Sales/Matur.,,0.0,0.0,0.0,NNE
+Other Inv. Act.,,0.0,0.0,-2.0,NNE
+Investing Cash Flow,,0.0,0.0,-4.0,NNE
+Financing Activities,,,,,NNE
+Debt Repay.,,0.0,0.0,0.0,NNE
+Stock Issued,,3.0,9.0,35.0,NNE
+Stock Repurch.,,0.0,0.0,0.0,NNE
+Dividends Paid,,0.0,0.0,0.0,NNE
+Other Fin. Act.,,3.0,-0.1,-1.0,NNE
+Financing Cash Flow,,3.0,9.0,34.0,NNE
+Forex Effect,,0.0,0.0,0.0,NNE
+Net Chg. in Cash,,2.0,5.0,22.0,NNE
+Supplemental Information,,,,,NNE
+Operating Cash Flow,,-0.6,-4.0,-8.0,NNE
+Capital Expenditures,,0.0,0.0,-2.0,NNE
+Beg. Cash,,0.0,2.0,7.0,NNE
+End Cash,,2.0,7.0,29.0,NNE
+Free Cash Flow,,-0.6,-4.0,-10.0,NNE
+Operating Activities,,,,,OKLO
+Net Income,-1.0,4.0,-0.0,-74.0,OKLO
+Dep. & Amort.,0.0,0.0,0.0,0.3,OKLO
+Deferred Tax,0.0,0.3,-0.3,0.0,OKLO
+Stock-Based Comp.,0.1,0.3,0.0,12.0,OKLO
+Change in WC,-0.9,2.0,-0.2,-5.0,OKLO
+Other Non-Cash,0.0,-7.0,0.5,27.0,OKLO
+Operating Cash Flow,-2.0,-1.0,-0.0,-38.0,OKLO
+Investing Activities,,,,,OKLO
+PP&E Inv.,-0.1,-0.1,-0.0,-0.4,OKLO
+Net Acquisitions,0.0,0.0,0.0,0.0,OKLO
+Inv. Purchases,-500.0,0.0,0.0,-292.0,OKLO
+Inv. Sales/Matur.,0.0,0.0,0.0,116.0,OKLO
+Other Inv. Act.,0.0,1.0,0.0,0.0,OKLO
+Investing Cash Flow,-500.0,1.0,-0.0,-176.0,OKLO
+Financing Activities,,,,,OKLO
+Debt Repay.,0.0,0.0,0.0,0.0,OKLO
+Stock Issued,505.0,0.0,0.0,0.0,OKLO
+Stock Repurch.,0.0,0.0,-216.0,0.0,OKLO
+Dividends Paid,0.0,0.0,0.0,0.0,OKLO
+Other Fin. Act.,4.0,0.0,-0.0,301.0,OKLO
+Financing Cash Flow,505.0,9.0,0.0,301.0,OKLO
+Forex Effect,0.0,0.0,0.0,0.0,OKLO
+Net Chg. in Cash,-9.0,0.2,0.2,87.0,OKLO
+Supplemental Information,,,,,OKLO
+Operating Cash Flow,-2.0,-1.0,-0.0,-38.0,OKLO
+Capital Expenditures,-0.1,-0.1,0.0,-0.4,OKLO
+Beg. Cash,12.0,3.0,0.0,10.0,OKLO
+End Cash,3.0,4.0,10.0,97.0,OKLO
+Free Cash Flow,-2.0,-1.0,-16.0,-39.0,OKLO
+Operating Activities,,,,,UEC
+Net Income,-15.0,5.0,-3.0,-29.0,UEC
+Dep. & Amort.,0.4,1.0,2.0,2.0,UEC
+Deferred Tax,-0.0,-0.0,0.9,-5.0,UEC
+Stock-Based Comp.,5.0,5.0,6.0,5.0,UEC
+Change in WC,-28.0,-35.0,57.0,-59.0,UEC
+Other Non-Cash,-4.0,-29.0,10.0,-20.0,UEC
+Operating Cash Flow,-41.0,-53.0,73.0,-106.0,UEC
+Investing Activities,,,,,UEC
+PP&E Inv.,-0.2,-1.0,-0.7,-3.0,UEC
+Net Acquisitions,-3.0,-114.0,-82.0,0.0,UEC
+Inv. Purchases,-10.0,-15.0,-47.0,-1.0,UEC
+Inv. Sales/Matur.,10.0,10.0,5.0,3.0,UEC
+Other Inv. Act.,-3.0,9.0,0.0,-23.0,UEC
+Investing Cash Flow,-4.0,-111.0,-125.0,-25.0,UEC
+Financing Activities,,,,,UEC
+Debt Repay.,-10.0,-10.0,-0.1,0.0,UEC
+Stock Issued,95.0,168.0,67.0,177.0,UEC
+Stock Repurch.,0.0,-0.6,0.0,0.0,UEC
+Dividends Paid,0.0,0.0,0.0,0.0,UEC
+Other Fin. Act.,-0.8,-0.6,-2.0,-4.0,UEC
+Financing Cash Flow,84.0,157.0,65.0,173.0,UEC
+Forex Effect,0.0,0.0,-0.1,-0.0,UEC
+Net Chg. in Cash,39.0,-7.0,13.0,42.0,UEC
+Supplemental Information,,,,,UEC
+Operating Cash Flow,-41.0,-53.0,73.0,-106.0,UEC
+Capital Expenditures,-0.2,-1.0,-0.7,-3.0,UEC
+Beg. Cash,7.0,46.0,40.0,53.0,UEC
+End Cash,46.0,40.0,53.0,95.0,UEC
+Free Cash Flow,-42.0,-54.0,72.0,-110.0,UEC
+Operating Activities,,,,,UUUU
+Net Income,1.0,-60.0,100.0,-48.0,UUUU
+Dep. & Amort.,3.0,0.0,0.0,0.0,UUUU
+Deferred Tax,-3.0,0.0,0.0,0.0,UUUU
+Stock-Based Comp.,2.0,5.0,5.0,5.0,UUUU
+Change in WC,-3.0,-14.0,0.0,-1.0,UUUU
+Other Non-Cash,-30.0,20.0,-120.0,-2.0,UUUU
+Operating Cash Flow,-29.0,-50.0,-15.0,-44.0,UUUU
+Investing Activities,,,,,UUUU
+PP&E Inv.,-1.0,-2.0,-45.0,-22.0,UUUU
+Net Acquisitions,0.3,0.5,0.0,27.0,UUUU
+Inv. Purchases,-0.3,-11.0,-176.0,-248.0,UUUU
+Inv. Sales/Matur.,3.0,6.0,140.0,283.0,UUUU
+Other Inv. Act.,2.0,-0.1,57.0,-53.0,UUUU
+Investing Cash Flow,3.0,-7.0,-24.0,-13.0,UUUU
+Financing Activities,,,,,UUUU
+Debt Repay.,0.0,0.0,0.0,0.0,UUUU
+Stock Issued,106.0,8.0,32.0,17.0,UUUU
+Stock Repurch.,0.0,0.0,0.0,0.0,UUUU
+Dividends Paid,0.0,0.0,0.0,0.0,UUUU
+Other Fin. Act.,12.0,-0.0,-1.0,-1.0,UUUU
+Financing Cash Flow,118.0,8.0,30.0,16.0,UUUU
+Forex Effect,0.0,-0.1,0.0,-2.0,UUUU
+Net Chg. in Cash,92.0,-53.0,-5.0,-16.0,UUUU
+Supplemental Information,,,,,UUUU
+Operating Cash Flow,-29.0,-50.0,-15.0,-44.0,UUUU
+Capital Expenditures,-1.0,-2.0,-45.0,-31.0,UUUU
+Beg. Cash,41.0,133.0,80.0,75.0,UUUU
+End Cash,133.0,80.0,75.0,59.0,UUUU
+Free Cash Flow,-31.0,-52.0,-60.0,-75.0,UUUU
