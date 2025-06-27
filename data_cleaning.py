@@ -17,6 +17,6 @@ def clean_10k_file(filepath: str) -> pd.DataFrame:
     
     return df # returning each data frame (.csv)
 
-df_clean = clean_10k_file('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/csv_raw/UUUU_ANNUAL_CASH_FLOW_FROM_PERPLEXITY.csv') # just change ticker of the company
-df_clean.to_csv('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/csv_ready/UUUU_cleaned.csv', index=False) # change the ticker here as well otherwise file won't be saved
+df_clean = clean_10k_file('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/csv_raw/FLNC_ANNUAL_CASH_FLOW_FROM_PERPLEXITY.csv') # just change ticker of the company
+df_clean.to_csv('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/csv_ready/FLNC_cleaned.csv', index=False) # change the ticker here as well otherwise file won't be saved
 

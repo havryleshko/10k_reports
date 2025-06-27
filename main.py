@@ -7,42 +7,8 @@ import logging
 logging.basicConfig(level=logging.INFO)
 warnings.filterwarnings('ignore')
 
-logging.info('Importing all the necessary .cvs files (10-K reports)...')
-#importing .cvs file for all companies within one sector
-
-df_cej = pd.read_csv('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/csv_ready/CEG_cleaned.csv')
-df_ccj = pd.read_csv('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/csv_ready/CCJ_cleaned.csv')
-df_bwxt = pd.read_csv('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/csv_ready/BWXT_cleaned.csv')
-df_gev = pd.read_csv('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/csv_ready/GEV_cleaned.csv')
-df_leu = pd.read_csv('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/csv_ready/LEU_cleaned.csv')
-df_anldf = pd.read_csv('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/csv_ready/ANLDF_cleaned.csv')
-df_boe = pd.read_csv('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/csv_ready/BOE_cleaned.csv')
-df_nee = pd.read_csv('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/csv_ready/NEE_cleaned.csv')
-df_nne = pd.read_csv('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/csv_ready/NNE_cleaned.csv')
-df_oklo = pd.read_csv('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/csv_ready/OKLO_cleaned.csv')
-df_uec = pd.read_csv('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/csv_ready/UEC_cleaned.csv')
-df_nxe = pd.read_csv('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/csv_ready/NXE_cleaned.csv')
-df_uuuu = pd.read_csv('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/csv_ready/UUUU_cleaned.csv')
-
-logging.info('Combining .csv files...')
-# adding 'company' column to each dataframe
-df_cej['company'] = 'CEG'
-df_ccj['company'] = 'CCJ'
-df_bwxt['company'] = 'BWXT'
-df_gev['company'] = 'GEV'
-df_leu['company'] = 'LEU'
-df_anldf['company'] = 'ANLDF'
-df_boe['company'] = 'BOE'
-df_nee['company'] = 'NEE'
-df_nne['company'] = 'NNE'
-df_oklo['company'] = 'OKLO'
-df_uec['company'] = 'UEC'
-df_nxe['company'] = 'NXE'
-df_uuuu['company'] = 'UUUU'
-
-
-combined_df = pd.concat([df_cej, df_ccj, df_bwxt, df_gev, df_leu, df_anldf, df_boe, df_nee, df_nxe, df_nne, df_oklo, df_uec, df_uuuu], ignore_index=True) 
-combined_df.to_csv('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/csv_ready/combined_10k_reports.csv', index=False) #combining all files into one dataset
+logging.info('Importing combined .csv...')
+combined_df = pd.read_csv('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/csv_ready/combined_10k_reports.csv')
 
 logging.info('I am trying to covert wide -> long format...')
 #these below four don't contain any information as they are HEADER ROWS
@@ -148,6 +114,7 @@ burn_rate['burn_cash_percent'] = burn_rate['burn_cash'] * 100
 
 plt.figure(figsize=(10, 8))
 sns.barplot(data=burn_rate, x='company', y='burn_cash_percent', color='skyblue')
+plt.xticks(ha='right', rotation='vertical')
 plt.xlabel('Company')
 plt.ylabel('Burn cash percentage')
 plt.title('Percentage of years with cash burn')
@@ -163,6 +130,7 @@ avg_margins = avg_margins.melt(
 
 plt.figure(figsize=(10, 6))
 sns.barplot(data=avg_margins, x='company', y='Value', hue='Margin Type')
+plt.xticks(ha='right', rotation='vertical')
 plt.axhline(0, color='black', linewidth=1)
 plt.title('Avg margins OCF and FCF')
 plt.tight_layout()
@@ -171,6 +139,7 @@ plt.show() # avg margins for each company - FCF and OCF
 trend = pivot_df.groupby('year')['Free Cash Flow'].mean().reset_index()
 plt.figure(figsize=(10, 6))
 sns.lineplot(data=trend, x='year', y='Free Cash Flow', marker='o')
+plt.xticks(ha='right', rotation='vertical')
 plt.title('Trend')
 plt.tight_layout()
 plt.show() # FCF trends
@@ -179,6 +148,7 @@ capex_ratio = pivot_df.groupby('company')['capex_ratio'].mean().reset_index()
 
 plt.figure(figsize=(10, 6))
 sns.barplot(data=capex_ratio, x='company', y='capex_ratio', color='skyblue')
+plt.xticks(ha='right', rotation='vertical')
 plt.ylabel('Capex / End cash')
 plt.title('avg capex ratio ')
 plt.tight_layout()
@@ -186,30 +156,66 @@ plt.show() # shows avg capex ratio by company
 
 logging.info('Finished EDA and Feature Engineering.')
 
-#modeling stage
+# modeling stage (PyCaret)
 
-logging.info('Starting with modeling using PyCaret...')
+# logging.info('Starting with modeling using PyCaret...')
 
-from pycaret.classification import setup, compare_models, evaluate_model, predict_model, tune_model, interpret_model, save_model, load_model
+# from pycaret.classification import setup, compare_models, evaluate_model, predict_model, tune_model, interpret_model, save_model, load_model
 
-df = pivot_df.drop(['company', 'year'], axis=1)
-features = pivot_df.columns
-trg = 'burn_cash'
+# df = pivot_df.drop(['company', 'year'], axis=1)
+# features = pivot_df.columns
+# trg = 'burn_cash'
 
-clf = setup(data=df, target=trg, session_id=42, normalize=True, fix_imbalance=True) #initialising the setup
-best_model = compare_models() # return best-performing model
-tuned_model = tune_model(best_model)
-evaluate_model(tuned_model) # getting evaluation of the best_model
+# clf = setup(data=df, target=trg, session_id=42, normalize=True, fix_imbalance=True) #initialising the setup
+# best_model = compare_models() # return best-performing model
+# tuned_model = tune_model(best_model)
+# evaluate_model(tuned_model) # getting evaluation of the best_model
 
-predictions = predict_model(tuned_model)
-print('Predictions: ', predictions)
+# predictions = predict_model(tuned_model)
+# print('Predictions: ', predictions)
 
-interpret_model(tuned_model) # SHAP explanation, which features influence 'burn_cash' prediction the most
-save_model(tuned_model, 'burn_cash_model') 
+# interpret_model(tuned_model) # SHAP explanation, which features influence 'burn_cash' prediction the most
+# save_model(tuned_model, 'burn_cash_model') 
 
-model = load_model('burn_cash_model')
+# model = load_model('burn_cash_model')
 
-logging.info('FINISHED MODELING.')
+# logging.info('FINISHED MODELING WITH PYCARET.')
 
+# Modeling stage with H2o
 
+import h2o
+from h2o import H2OFrame
+from h2o.automl import H2OAutoML
 
+h2o.init()
+
+dataframe = h2o.H2OFrame(pivot_df)
+dataframe['burn_cash'] = dataframe['burn_cash'].asfactor()
+
+target = 'burn_cash'
+features = [c for c in dataframe.columns if c not in ['burn_cash', 'year', 'company']]
+
+train, valid, test = dataframe.split_frame(ratios=[0.8, 0.1], seed=42)
+
+aml = H2OAutoML(
+    max_models=10,
+    max_runtime_secs=450,
+    keep_cross_validation_predictions=True,
+    nfolds=3)
+
+print('Train columns: ', train.columns)
+print("Feature columns (x):", features)
+
+aml.train(x=features, y=target, training_frame=train, validation_frame=valid)
+logging.info('Creating leaderboard and printing out top 5 models...')
+lbd = aml.leaderboard # leaderboard of top 5 models
+print(f'Top 5 best-performing models: ', lbd.head(5))
+
+logging.info('Finding the best model among leaders...')
+best_model = aml.leader
+
+predictions = best_model.predict(test)
+performance = best_model.model_performance(test_data=test)
+performance.confusion_matrix()
+
+h2o.save_model(best_model, path='/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/models', force=True) # force overrides the file without asking
