@@ -37,6 +37,10 @@ df_tsla = pd.read_csv('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/c
 df_vst = pd.read_csv('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/csv_ready/VST_cleaned.csv')
 df_xel = pd.read_csv('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/csv_ready/XEL_cleaned.csv')
 
+df_enr = pd.read_csv('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/csv_ready/ENR_cleaned.csv')
+df_jks = pd.read_csv('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/csv_ready/JKS_cleaned.csv')
+df_ora = pd.read_csv('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/csv_ready/ORA_cleaned.csv')
+
 logging.info('Combining .csv files...')
 # adding 'company' column to each dataframe
 df_cej['company'] = 'CEG'
@@ -68,9 +72,12 @@ df_ssezy['company'] = 'SSEZY'
 df_tsla['company'] = 'TSLA'
 df_vst['company'] = 'VST'
 df_xel['company'] = 'XEL'
+df_ora['company'] = 'ORA'
+df_jks['company'] = 'JKS'
+df_enr['company'] = 'ENR'
 
 
 
 combined_df = pd.concat([df_cej, df_ccj, df_bwxt, df_gev, df_leu, df_anldf, df_boe, df_nee, df_nxe, df_nne, df_oklo, df_uec, df_uuuu, df_aes, df_boeax, df_cpxto,
-                        df_dte, df_cwen, df_flnc, df_enph, df_fslr, df_sedg, df_smr, df_so, df_ssel, df_tsla, df_vst, df_xel], ignore_index=True) 
-combined_df.to_csv('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/csv_ready/combined_10k_reports.csv', index=False) #combining all files into one dataset
+                        df_dte, df_cwen, df_flnc, df_enph, df_fslr, df_sedg, df_smr, df_so, df_ssel, df_tsla, df_vst, df_xel, df_enr, df_jks, df_ora], ignore_index=True) 
+combined_df.to_csv('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/csv_ready/combined_10k.csv', index=False) #combining all files into one dataset

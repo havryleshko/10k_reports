@@ -8,7 +8,7 @@ logging.basicConfig(level=logging.INFO)
 warnings.filterwarnings('ignore')
 
 logging.info('Importing combined .csv...')
-combined_df = pd.read_csv('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/csv_ready/combined_10k_reports.csv')
+combined_df = pd.read_csv('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/csv_ready/combined_10k.csv')
 
 logging.info('I am trying to covert wide -> long format...')
 #these below four don't contain any information as they are HEADER ROWS
@@ -158,64 +158,74 @@ logging.info('Finished EDA and Feature Engineering.')
 
 # modeling stage (PyCaret)
 
-# logging.info('Starting with modeling using PyCaret...')
+logging.info('Starting with modeling using PyCaret...')
 
-# from pycaret.classification import setup, compare_models, evaluate_model, predict_model, tune_model, interpret_model, save_model, load_model
+from pycaret.classification import setup, compare_models, evaluate_model, predict_model, tune_model, interpret_model, save_model, load_model
 
-# df = pivot_df.drop(['company', 'year'], axis=1)
-# features = pivot_df.columns
-# trg = 'burn_cash'
+df = pivot_df.drop(['company', 'year'], axis=1)
+features = pivot_df.columns
+trg = 'burn_cash'
 
-# clf = setup(data=df, target=trg, session_id=42, normalize=True, fix_imbalance=True) #initialising the setup
-# best_model = compare_models() # return best-performing model
-# tuned_model = tune_model(best_model)
-# evaluate_model(tuned_model) # getting evaluation of the best_model
+df = df.replace([float('inf'), float('-inf')], pd.NA)
+df = df.dropna()
 
-# predictions = predict_model(tuned_model)
-# print('Predictions: ', predictions)
+clf = setup(data=df, target=trg, session_id=42, normalize=True, fix_imbalance=True) #initialising the setup
+best_model = compare_models() # return best-performing model
+tuned_model = tune_model(best_model)
+evaluate_model(tuned_model) # getting evaluation of the best_model
 
-# interpret_model(tuned_model) # SHAP explanation, which features influence 'burn_cash' prediction the most
-# save_model(tuned_model, 'burn_cash_model') 
+predictions = predict_model(tuned_model)
+print('Predictions: ', predictions)
 
-# model = load_model('burn_cash_model')
+interpret_model(tuned_model) # SHAP explanation, which features influence 'burn_cash' prediction the most
+save_model(tuned_model, 'burn_cash_model') 
 
-# logging.info('FINISHED MODELING WITH PYCARET.')
+model = load_model('burn_cash_model')
+
+logging.info('FINISHED MODELING WITH PYCARET.')
+
+#visualising the resuls
+from pycaret.classification import plot_model
+plot_model(best_model, plot='feature') # plot for feature importance - what drives the prediction of cash burn 
+plot_model(best_model, plot='confusion_matrix') # confusion matrixx
+plot_model(best_model, plot='auc')
+plot_model(best_model, plot='pr')
 
 # Modeling stage with H2o
 
-import h2o
-from h2o import H2OFrame
-from h2o.automl import H2OAutoML
+# import h2o
+# from h2o import H2OFrame
+# from h2o.automl import H2OAutoML
 
-h2o.init()
+# h2o.init()
 
-dataframe = h2o.H2OFrame(pivot_df)
-dataframe['burn_cash'] = dataframe['burn_cash'].asfactor()
+# dataframe = h2o.H2OFrame(pivot_df)
+# dataframe['burn_cash'] = dataframe['burn_cash'].asfactor()
 
-target = 'burn_cash'
-features = [c for c in dataframe.columns if c not in ['burn_cash', 'year', 'company']]
+# target = 'burn_cash'
+# features = [c for c in dataframe.columns if c not in ['burn_cash', 'year', 'company']]
 
-train, valid, test = dataframe.split_frame(ratios=[0.8, 0.1], seed=42)
+# train, valid, test = dataframe.split_frame(ratios=[0.8, 0.1], seed=42)
 
-aml = H2OAutoML(
-    max_models=10,
-    max_runtime_secs=450,
-    keep_cross_validation_predictions=True,
-    nfolds=3)
+# aml = H2OAutoML(
+#     max_models=10,
+#     max_runtime_secs=450,
+#     keep_cross_validation_predictions=True,
+#     nfolds=3)
 
-print('Train columns: ', train.columns)
-print("Feature columns (x):", features)
+# print('Train columns: ', train.columns)
+# print("Feature columns (x):", features)
 
-aml.train(x=features, y=target, training_frame=train, validation_frame=valid)
-logging.info('Creating leaderboard and printing out top 5 models...')
-lbd = aml.leaderboard # leaderboard of top 5 models
-print(f'Top 5 best-performing models: ', lbd.head(5))
+# aml.train(x=features, y=target, training_frame=train, validation_frame=valid)
+# logging.info('Creating leaderboard and printing out top 5 models...')
+# lbd = aml.leaderboard # leaderboard of top 5 models
+# print(f'Top 5 best-performing models: ', lbd.head(5))
 
-logging.info('Finding the best model among leaders...')
-best_model = aml.leader
+# logging.info('Finding the best model among leaders...')
+# best_model = aml.leader
 
-predictions = best_model.predict(test)
-performance = best_model.model_performance(test_data=test)
-performance.confusion_matrix()
+# predictions = best_model.predict(test)
+# performance = best_model.model_performance(test_data=test)
+# performance.confusion_matrix()
 
-h2o.save_model(best_model, path='/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/models', force=True) # force overrides the file without asking
+# h2o.save_model(best_model, path='/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/models', force=True) # force overrides the file without asking
