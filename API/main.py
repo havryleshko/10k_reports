@@ -7,7 +7,7 @@ import pandas as pd
 app = FastAPI()
 
 h2o.init()
-model = h2o.load_model('/Users/ohavryleshko/Documents/GitHub/AutoML/10k_reports/models/StackedEnsemble_BestOfFamily_1_AutoML_1_20250629_111259')
+model = h2o.load_model('models/StackedEnsemble_BestOfFamily_1_AutoML_1_20250629_111259')
 
 class FinIn(BaseModel):
     total_assets: float
