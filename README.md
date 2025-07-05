@@ -1,3 +1,11 @@
+### Cash Burn Predictor
+
+This project is a FastAPI + Gradio app for predicting cash burn using an H2O model.
+
+Try live public app:
+Cash Burn Predictor on Render(https://one0k-reports.onrender.com/gradio)
+
+
 ### Predicting Corporate Cash Burn (2021–2024)
 
 **This project uses financial statement data from public energy companies to predict whether a company will burn cash in the next fiscal year — a critical signal for startups and many other firms.**
