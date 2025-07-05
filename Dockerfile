@@ -4,12 +4,15 @@ FROM python:3.10-slim
 # Set working directory inside the container
 WORKDIR /app
 
+# Install system dependencies needed for H2O and others
+RUN apt-get update && apt-get install -y \
+    default-jre \
+    ca-certificates \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
 # Copy only requirements first (to leverage Docker cache)
 COPY requirements.txt .
-
-# Install system dependencies needed for H2O and others
-RUN apt-get update && apt-get install -y default-jre && rm -rf /var/lib/apt/lists/*
-
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
