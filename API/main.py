@@ -8,7 +8,7 @@ from fastapi.responses import RedirectResponse
 
 app = FastAPI()
 
-h2o.init(log_level='ERROR')
+h2o.init(log_level='ERRR')
 model = h2o.load_model('models/StackedEnsemble_BestOfFamily_1_AutoML_1_20250629_111259')
 
 class FinIn(BaseModel):
